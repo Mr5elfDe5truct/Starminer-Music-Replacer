@@ -1,0 +1,11 @@
+{
+    "$types": {
+        "UnrealBuildTool.EncryptionAndSigning+CryptoSettings, UnrealBuildTool": "1"
+    },
+    "$type": "1",
+    "EncryptionKey": {
+        "Name": null,
+        "Guid": "00000000000000000000000000000000",
+        "Key": "2jOlVrPwzeRnB3tKUSjxO7E9l6scemKf2mu6qgxG064="
+    }
+}
