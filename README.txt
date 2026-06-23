@@ -11,15 +11,14 @@ PREREQUISITES
 --------------------------------------------------------
 
 1. **Python 3**: Ensure Python 3 is installed and added to your system environment variables (PATH).
-2. **FFmpeg**: The tool uses FFmpeg to transcode WAV and MP3 inputs. It will look for `ffmpeg` in your system PATH, a local `ffmpeg.exe` placed in the tool's folder, or the default installer path.
-3. **UnrealPak**: Requires `UnrealPak.exe` (part of Unreal Engine 4.27). The tool will look for it in the default Epic Games installation path (`C:\Program Files\Epic Games\UE_4.27\Engine\Binaries\Win64\UnrealPak.exe`) or you can copy `UnrealPak.exe` (and its dependencies `libogg.dll` and `libvorbis.dll` from the UE4 folder) directly into this ModTool folder.
+2. **Pre-packaged Binaries**: UnrealPak.exe (and all its required DLL modules/configs) and FFmpeg.exe are pre-packaged within the `Engine/Binaries/Win64/` directory. No separate installations or manual configuration of Unreal Engine or FFmpeg are required.
 
 --------------------------------------------------------
 SETUP
 --------------------------------------------------------
 
 1. Clone or extract this repository. For ease of use, make sure the `ModTool` folder is placed directly inside the main game directory (next to the `game` folder).
-2. The repository does not host copyrighted original game assets. On first run, `run_mod.bat` will automatically run `setup_assets.py` to extract the required uasset/uexp templates directly from your local game files using UnrealPak and the provided `crypto.json` decryption key.
+2. The repository does not host copyrighted original game assets. On first run, `run_mod.bat` will automatically run `setup_assets.py` to extract the required uasset/uexp templates directly from your local game files using the pre-packaged UnrealPak and the provided `crypto.json` decryption key.
 
 --------------------------------------------------------
 HOW TO USE IT

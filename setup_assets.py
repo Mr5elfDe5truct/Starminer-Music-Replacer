@@ -60,14 +60,20 @@ def setup_original_templates():
             return False
             
     # Search for UnrealPak
-    real_unrealpak = unrealpak_path
+    real_unrealpak = os.path.join(tool_dir, "Engine", "Binaries", "Win64", "UnrealPak.exe")
+    if not os.path.exists(real_unrealpak):
+        real_unrealpak = os.path.join(tool_dir, "bin", "UnrealPak.exe")
+    if not os.path.exists(real_unrealpak):
+        real_unrealpak = os.path.join(tool_dir, "UnrealPak.exe")
+    if not os.path.exists(real_unrealpak):
+        real_unrealpak = unrealpak_path
     if not os.path.exists(real_unrealpak):
         # Check system path
         which = shutil.which("UnrealPak.exe")
         if which:
             real_unrealpak = which
         else:
-            print("Error: UnrealPak.exe not found. Please edit setup_assets.py or install UE4.27.")
+            print("Error: UnrealPak.exe not found. Please place it in bin/ or install UE4.27.")
             return False
 
     # Extract original files
@@ -83,7 +89,8 @@ def setup_original_templates():
         pak_path,
         "-Extract", temp_extract,
         "-Filter=ILLSpace/Content/Audio/Music/SoundWaves/*",
-        f"-cryptokeys={crypto_path}"
+        f"-cryptokeys={crypto_path}",
+        "-ddc=noshared"
     ]
     
     print(f"Running UnrealPak to extract templates...")

@@ -11,15 +11,17 @@ staged_dir = os.path.join(tool_dir, "Staged")
 response_path = os.path.join(tool_dir, "response.txt")
 
 # Auto-detect FFmpeg
-ffmpeg_path = r"C:\Program Files\StoryVox\FFmpeg\ffmpeg.exe" # default fallback
+ffmpeg_path = os.path.join(tool_dir, "Engine", "Binaries", "Win64", "ffmpeg.exe")
+if not os.path.exists(ffmpeg_path):
+    ffmpeg_path = os.path.join(tool_dir, "bin", "ffmpeg.exe")
+if not os.path.exists(ffmpeg_path):
+    ffmpeg_path = os.path.join(tool_dir, "ffmpeg.exe")
+if not os.path.exists(ffmpeg_path):
+    ffmpeg_path = r"C:\Program Files\StoryVox\FFmpeg\ffmpeg.exe" # default fallback
 if not os.path.exists(ffmpeg_path):
     which_ffmpeg = shutil.which("ffmpeg")
     if which_ffmpeg:
         ffmpeg_path = which_ffmpeg
-    else:
-        local_ffmpeg = os.path.join(tool_dir, "ffmpeg.exe")
-        if os.path.exists(local_ffmpeg):
-            ffmpeg_path = local_ffmpeg
 
 
 # Ensure directories exist
@@ -179,7 +181,7 @@ for input_name, (targets, orig_durations) in mappings.items():
     # Transcode to temp OGG
     temp_ogg = os.path.join(tool_dir, f"temp_{input_name}.ogg")
     try:
-        new_duration = get_ogg_duration_and_transcode(input_file, temp_ogg)
+        new_duration = get_audio_duration_and_transcode(input_file, temp_ogg)
     except Exception as e:
         print(f"  Error transcoding: {e}")
         if os.path.exists(temp_ogg):

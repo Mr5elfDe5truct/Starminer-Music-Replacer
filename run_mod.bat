@@ -37,7 +37,13 @@ if %errorlevel% neq 0 (
 :: Run UnrealPak
 echo.
 echo Packaging staged files with UnrealPak...
-set "unrealpak=%~dp0UnrealPak.exe"
+set "unrealpak=%~dp0Engine\Binaries\Win64\UnrealPak.exe"
+if not exist "!unrealpak!" (
+    set "unrealpak=%~dp0bin\UnrealPak.exe"
+)
+if not exist "!unrealpak!" (
+    set "unrealpak=%~dp0UnrealPak.exe"
+)
 if not exist "!unrealpak!" (
     set "unrealpak=C:\Program Files\Epic Games\UE_4.27\Engine\Binaries\Win64\UnrealPak.exe"
 )
@@ -76,7 +82,7 @@ if exist "!pak_out!" (
 )
 
 :: Package
-"!unrealpak!" "!pak_out!" -Create="!response_txt!" -cryptokeys="!crypto_json!" -encrypt -encryptindex
+"!unrealpak!" "!pak_out!" -Create="!response_txt!" -cryptokeys="!crypto_json!" -encrypt -encryptindex -ddc=noshared
 if %errorlevel% neq 0 (
     echo Error: Packaging failed with UnrealPak.
     pause
