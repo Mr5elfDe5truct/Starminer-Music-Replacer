@@ -10,3 +10,7 @@ response.txt
 
 # Keep the InputAudio folder structure in Git but ignore contents
 !InputAudio/.gitkeep
+
+# Ignore engine saved runtime files, logs and temporary configuration
+Engine/Saved/
+Engine/Programs/UnrealPak/Saved/
