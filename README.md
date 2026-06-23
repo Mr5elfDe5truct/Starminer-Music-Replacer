@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="banner.png" alt="Starminer Music Replacer Mod Tool Banner" width="100%">
+  <img src="banner.png" alt="Starminer Music Replacer Mod Tool Banner" width="600">
 
   # 🌌 Starminer Music Replacer Mod Tool
 
