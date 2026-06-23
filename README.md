@@ -43,11 +43,22 @@
 
 ## 🎵 How To Use
 
-### Step 1: Place your custom tracks
+### 🎮 Option A: Desktop GUI (Recommended)
+
+1. Double-click and run **`run_gui.bat`**.
+2. Click **"Import..."** next to any track and select your custom audio file (WAV, MP3, or OGG). The GUI will copy and rename the file into the `InputAudio/` folder automatically.
+3. Click **"🔨 COMPILE MUSIC MOD"** to build, transcode, and package your custom soundtrack.
+4. Click **"🚀 LAUNCH STARMINER"** directly from the GUI (or launch the game through Steam/your desktop shortcut) to play!
+
+---
+
+### 💻 Option B: Manual Command Line Interface (CLI)
+
+#### Step 1: Place your custom tracks
 Put your music files inside the `InputAudio/` directory.
 
-### Step 2: Name files to override
-Rename the audio files to match the track you want to override:
+#### Step 2: Name files to override
+Rename the audio files manually to match the track you want to override:
 
 | Target File Name | Description | Replaces | Original Duration |
 | :--- | :--- | :--- | :--- |
@@ -60,7 +71,7 @@ Rename the audio files to match the track you want to override:
 > [!NOTE]
 > You do not need to replace all tracks. For example, if you only place `MainMenu.wav` in `InputAudio/`, only the main menu music will be replaced and exploration music will remain default.
 
-### Step 3: Run the script
+#### Step 3: Run the script
 Double-click and run **`run_mod.bat`**. The tool will:
 - Extract original template assets (if it's the first run).
 - Transcode your custom files to Ogg Vorbis.
@@ -68,5 +79,5 @@ Double-click and run **`run_mod.bat`**. The tool will:
 - Compile and encrypt the patch pak file.
 - Clean up overriding loose files.
 
-### Step 4: Play!
-Launch **Starminer** and listen to your new tracks!
+#### Step 4: Play!
+Launch **Starminer** and enjoy your custom music!
